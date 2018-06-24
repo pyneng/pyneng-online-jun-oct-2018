@@ -1,0 +1,12 @@
+Value NET (\S+)
+Value MASK (\d{1,2})
+Value AD (\d+)
+Value METR (\d+)
+Value List NH (\S+)
+Value List INTF (\S+)
+
+Start
+  ^O -> Continue.Record
+  ^O +${NET}/${MASK} \[${AD}/${METR}\] via ${NH}, \w+, ${INTF}
+  ^ +\[${AD}/${METR}\] via ${NH}, \w+, ${INTF}
+

@@ -1,0 +1,15 @@
+Value Filldown L_HOST (\S+)
+Value Required R_HOST (\S+)
+Value MGMNT_IP (.+)
+Value PLATFORM (.+)
+Value L_PORT (\S+)
+Value R_PORT (\S+)
+Value IOS (\S+)
+
+Start
+  ^${L_HOST}[>#].
+  ^Device ID: ${R_HOST}
+  ^ +IP address: ${MGMNT_IP}
+  ^Platform: ${PLATFORM},
+  ^Interface: ${L_PORT},  Port ID \(outgoing port\): ${R_PORT}
+  ^.*Version ${IOS}, -> Record

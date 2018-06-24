@@ -1,0 +1,8 @@
+---
+
+cli:
+  host: "{{ inventory_hostname }}"
+  username: "cisco"
+  password: "cisco"
+  authorize: yes
+  auth_pass: "cisco"
