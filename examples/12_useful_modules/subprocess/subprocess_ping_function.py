@@ -1,26 +1,25 @@
 import subprocess
 
 
-def ping_ip(ip_address):
+def ping_ip(ip_address, verbose=False):
     '''
     Ping IP address and return tuple:
     On success:
         * True
-        * command output (stdout)
     On failure:
         * False
-        * error output (stderr)
     '''
     reply = subprocess.run(
-        ['ping', '-c', '3', '-n', ip_address],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        encoding='utf-8')
+        ['ping', '-c', '3', '-n', ip_address], encoding='utf-8',
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if verbose:
+        print(reply.stdout)
+        print(reply.stderr)
     if reply.returncode == 0:
-        return True, reply.stdout
+        return True
     else:
-        return False, reply.stderr
+        return False
 
 
-print(ping_ip('8.8.8.8'))
+print(ping_ip('8.8.8.8', verbose=True))
 print(ping_ip('a'))

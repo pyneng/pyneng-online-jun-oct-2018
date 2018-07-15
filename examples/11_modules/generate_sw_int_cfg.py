@@ -13,6 +13,17 @@ def generate_access_cfg(sw_dict):
                 result.append(' {}'.format(command))
     return result
 
-
-if __name__ == '__main__':
+##version 1
+if __name__ == "__main__":
     print('\n'.join(generate_access_cfg(sw1_fast_int)))
+    print(sw_temp.read_file_content('test_script.py'))
+
+
+##version 2
+def main():
+    print('\n'.join(generate_access_cfg(sw1_fast_int)))
+    print(sw_temp.read_file_content('test_script.py'))
+
+if __name__ == "__main__":
+    main()
+
