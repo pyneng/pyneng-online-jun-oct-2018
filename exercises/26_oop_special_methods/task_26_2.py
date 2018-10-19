@@ -11,9 +11,9 @@
 
 Пример работы класса:
 
-In [8]: top = Topology(topology_example)
+In [8]: t1 = Topology(topology_example)
 
-In [9]: i = iter(top)
+In [9]: top = iter(t1)
 
 In [10]: next(top)
 Out[10]: (('R1', 'Eth0/0'), ('SW1', 'Eth0/1'))
@@ -24,7 +24,9 @@ Out[11]: (('R2', 'Eth0/0'), ('SW1', 'Eth0/2'))
 In [12]: next(top)
 Out[12]: (('R2', 'Eth0/1'), ('SW2', 'Eth0/11'))
 
-In [13]: for link in top:
+In [13]: top = iter(t1)
+
+In [14]: for link in top:
     ...:     print(link)
     ...:
 (('R1', 'Eth0/0'), ('SW1', 'Eth0/1'))
